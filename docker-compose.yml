@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: sghp-mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"     # MQTT plaintext
+      - "9001:9001"     # Websockets (if used)
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:ro
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    environment:
+      - TZ=UTC
