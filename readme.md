@@ -28,7 +28,7 @@ Key things to note about publications:
 Key things to note about subscriptions:
 
 - set Buffered mode to OFF, otherwise you have to acknowledge every single record before it will update the value.
-- enable Subscribe at boot time so you don't have to do any logic. (Though I also added a ladder logic on `General.Ladder Initial Cycle` `MQTT Subscribe all`. It seems to be okay when you call subscribe twice so it's all good, but might cause problems if you resubscribe every tick)
+- enable Subscribe at boot time so you don't have to do any logic. (Though I also added a ladder logic on `General.Ladder Initial Cycle` `MQTT Subscribe all`. and when the broker connected positive transition, subscribe all. It seems to be okay when you call subscribe twice so it's all good, but might cause problems if you resubscribe every tick)
 
 Byte format for Raw data is little-endian.
 
@@ -58,3 +58,4 @@ The only problem is that when this is reversed, the MQTT configuration to accept
 
 
 
+when importing tags, use copy and replace.

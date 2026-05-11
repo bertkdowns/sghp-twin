@@ -9,15 +9,15 @@ MQTT_BROKER = "localhost"   # change if needed
 MQTT_PORT = 1883
 
 TOPICS = [
-    ("HPTT01", 0),
-    ("HPTT02", 0),
-    ("HPTT03", 0),
-    ("HPTT04", 0),
-    ("HPTT05", 0),
-    ("HPTT06", 0),
-    ("HPTT07", 0),
-    ("HPCO01", 0),
-    ("HPEV01", 0),
+    ("PLC/HPTT01", 0),
+    ("PLC/HPTT02", 0),
+    ("PLC/HPTT03", 0),
+    ("PLC/HPTT04", 0),
+    ("PLC/HPTT05", 0),
+    ("PLC/HPTT06", 0),
+    ("PLC/HPTT07", 0),
+    ("PLC/HPCO01", 0),
+    ("PLC/HPEV01", 0),
 ]
      
 
@@ -32,9 +32,9 @@ def on_connect(client, userdata, flags, rc):
             client.subscribe(topic, qos)
             print(f"Subscribed to {topic}")
         
-        publish_tag(client, "HPPT02", 123)
-        publish_tag(client, "HPEV01", 124)
-        publish_tag(client, "HPCO01", 123)
+        publish_tag(client, "VIRTUAL/HPPT02", 123)
+        publish_tag(client, "CONTROL/HPEV01", 124)
+        publish_tag(client, "CONTROL/HPCO01", 123)
     else:
         print("MQTT connection failed:", rc)
 
