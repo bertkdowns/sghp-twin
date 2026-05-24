@@ -1,0 +1,10 @@
+{
+    "ET2211": {
+        "property": 18,
+        "units": "kW"
+    },
+    "E2MV1": {
+        "property": 19,
+        "units": "kPa"
+    }
+}

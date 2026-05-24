@@ -1,0 +1,1027 @@
+{
+    "group_id": 1,
+    "name": "",
+    "description": "",
+    "dynamic": false,
+    "is_rating_mode": false,
+    "time_set": [
+        0.0
+    ],
+    "property_packages": [
+        {
+            "id": 0,
+            "type": "helmholtz",
+            "compounds": [
+                "water"
+            ],
+            "phases": [
+                "Liq",
+                "Vap"
+            ],
+            "custom_compound_properties": null,
+            "custom_package_properties": null,
+            "custom_kappa_values": null
+        }
+    ],
+    "unit_models": [
+        {
+            "id": 2,
+            "type": "heater",
+            "name": "Heater1",
+            "args": {
+                "property_package": {
+                    "type": "property_package",
+                    "id": 0
+                },
+                "has_pressure_change": {
+                    "type": "value",
+                    "value": true
+                },
+                "dynamic": {
+                    "type": "value",
+                    "value": false
+                },
+                "has_holdup": {
+                    "type": "value",
+                    "value": false
+                }
+            },
+            "properties": {
+                "heat_duty": {
+                    "data": [
+                        {
+                            "id": 18,
+                            "discrete_indexes": [],
+                            "value": [
+                                0.7567316886303078
+                            ],
+                            "controlled": null,
+                            "guess": true,
+                            "constraint": null
+                        }
+                    ],
+                    "unit": "kW"
+                },
+                "deltaP_inverted": {
+                    "data": [
+                        {
+                            "id": 19,
+                            "discrete_indexes": [],
+                            "value": [
+                                0.0
+                            ],
+                            "controlled": null,
+                            "guess": false,
+                            "constraint": null
+                        }
+                    ],
+                    "unit": "kPa"
+                }
+            },
+            "ports": {
+                "inlet": {
+                    "id": 1,
+                    "properties": {
+                        "mole_frac_comp": {
+                            "data": [
+                                {
+                                    "id": 89,
+                                    "discrete_indexes": [
+                                        "water"
+                                    ],
+                                    "value": [
+                                        1.0
+                                    ],
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": "dimensionless"
+                        },
+                        "flow_mass": {
+                            "data": [
+                                {
+                                    "id": 67,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "flow_mol": {
+                            "data": [
+                                {
+                                    "id": 68,
+                                    "discrete_indexes": [],
+                                    "value": [
+                                        1.000000001771757
+                                    ],
+                                    "controlled": null,
+                                    "guess": true,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": "mol/s"
+                        },
+                        "temperature": {
+                            "data": [
+                                {
+                                    "id": -1,
+                                    "discrete_indexes": [],
+                                    "value": [
+                                        80.00000000000085
+                                    ],
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": "degC"
+                        },
+                        "pressure": {
+                            "data": [
+                                {
+                                    "id": 70,
+                                    "discrete_indexes": [],
+                                    "value": [
+                                        100.0
+                                    ],
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": "kPa"
+                        },
+                        "vapor_frac": {
+                            "data": [
+                                {
+                                    "id": 71,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "enth_mol": {
+                            "data": [
+                                {
+                                    "id": 72,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "enth_mass": {
+                            "data": [
+                                {
+                                    "id": 73,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "entr_mol": {
+                            "data": [
+                                {
+                                    "id": 74,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "entr_mass": {
+                            "data": [
+                                {
+                                    "id": 75,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "total_energy_flow": {
+                            "data": [
+                                {
+                                    "id": 76,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "flow_vol": {
+                            "data": [
+                                {
+                                    "id": 77,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "mole_frac_phase_comp": {
+                            "data": [
+                                {
+                                    "id": 90,
+                                    "discrete_indexes": [
+                                        "Liq",
+                                        "water"
+                                    ],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                },
+                                {
+                                    "id": 91,
+                                    "discrete_indexes": [
+                                        "Vap",
+                                        "water"
+                                    ],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        }
+                    }
+                },
+                "outlet": {
+                    "id": 2,
+                    "properties": {
+                        "mole_frac_comp": {
+                            "data": [
+                                {
+                                    "id": 86,
+                                    "discrete_indexes": [
+                                        "water"
+                                    ],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "flow_mass": {
+                            "data": [
+                                {
+                                    "id": 43,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "flow_mol": {
+                            "data": [
+                                {
+                                    "id": 44,
+                                    "discrete_indexes": [],
+                                    "value": [
+                                        1.000000001771757
+                                    ],
+                                    "controlled": 68,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": "mol/s"
+                        },
+                        "temperature": {
+                            "data": [
+                                {
+                                    "id": 45,
+                                    "discrete_indexes": [],
+                                    "value": [
+                                        89.99999999999926
+                                    ],
+                                    "controlled": 18,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": "degC"
+                        },
+                        "pressure": {
+                            "data": [
+                                {
+                                    "id": 46,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "vapor_frac": {
+                            "data": [
+                                {
+                                    "id": 47,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "enth_mol": {
+                            "data": [
+                                {
+                                    "id": 48,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "enth_mass": {
+                            "data": [
+                                {
+                                    "id": 49,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "entr_mol": {
+                            "data": [
+                                {
+                                    "id": 50,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "entr_mass": {
+                            "data": [
+                                {
+                                    "id": 51,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "total_energy_flow": {
+                            "data": [
+                                {
+                                    "id": 52,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "flow_vol": {
+                            "data": [
+                                {
+                                    "id": 53,
+                                    "discrete_indexes": [],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        },
+                        "mole_frac_phase_comp": {
+                            "data": [
+                                {
+                                    "id": 87,
+                                    "discrete_indexes": [
+                                        "Liq",
+                                        "water"
+                                    ],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                },
+                                {
+                                    "id": 88,
+                                    "discrete_indexes": [
+                                        "Vap",
+                                        "water"
+                                    ],
+                                    "value": null,
+                                    "controlled": null,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": ""
+                        }
+                    }
+                }
+            },
+            "initial_values": {
+                "Heater1_2": {
+                    "data": {
+                        "None": {
+                            "__type__": "<class 'idaes.core.base.process_block._ScalarDynamicHeater'>",
+                            "__pyomo_components__": {
+                                "deltaP": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 0.0,
+                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "heat_duty": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 756.7316886303078,
+                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "control_volume": {
+                                    "data": {
+                                        "None": {
+                                            "__type__": "<class 'idaes.core.base.process_block._ScalarControlVolume0DBlock'>",
+                                            "__pyomo_components__": {
+                                                "heat": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "value": 756.7316886303078,
+                                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                                },
+                                                "deltaP": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "value": 0.0,
+                                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                                },
+                                                "properties_in": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "__type__": "<class 'ahuora_property_packages.helmholtz.helmholtz_extended.HelmholtzExtendedStateBlockData'>",
+                                                            "__pyomo_components__": {
+                                                                "enth_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 6035.635040540353,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "flow_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 1.000000001771757,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "pressure": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 100000.0,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "temperature_var": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 353.15,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'idaes.core.base.process_block._IndexedHelmholtzExtendedStateBlock'>"
+                                                },
+                                                "properties_out": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "__type__": "<class 'ahuora_property_packages.helmholtz.helmholtz_extended.HelmholtzExtendedStateBlockData'>",
+                                                            "__pyomo_components__": {
+                                                                "enth_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 6792.366727830015,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "flow_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 1.000000001771757,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "pressure": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 100000.0,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "temperature_var": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 363.15,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'idaes.core.base.process_block._IndexedHelmholtzExtendedStateBlock'>"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "__type__": "<class 'idaes.core.base.process_block._ScalarControlVolume0DBlock'>"
+                                },
+                                "deltaP_inverted": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 0.0,
+                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_enth_mol_inlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 6035.635040540353,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_flow_mol_inlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 1.000000001771757,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_pressure_inlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 100000.0,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_enth_mol_outlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 6792.366727830015,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_flow_mol_outlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 1.000000001771757,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_pressure_outlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 100000.0,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                }
+                            }
+                        }
+                    },
+                    "__type__": "<class 'idaes.core.base.process_block._ScalarDynamicHeater'>"
+                },
+                "__metadata__": {
+                    "date": "2026-05-22",
+                    "time": "06:28:47.615178",
+                    "other": {},
+                    "format_version": 4,
+                    "__performance__": {
+                        "n_components": 46,
+                        "etime_make_dict": 0.0005443096160888672,
+                        "etime_write_file": 4.76837158203125e-7
+                    }
+                }
+            }
+        },
+        {
+            "id": 5,
+            "type": "cooler",
+            "name": "Cooler1",
+            "args": {
+                "property_package": {
+                    "type": "property_package",
+                    "id": 0
+                },
+                "has_pressure_change": {
+                    "type": "value",
+                    "value": true
+                },
+                "dynamic": {
+                    "type": "value",
+                    "value": false
+                }
+            },
+            "properties": {
+                "heat_duty_inverted": {
+                    "data": [
+                        {
+                            "id": 54,
+                            "discrete_indexes": [],
+                            "value": [
+                                0.7567316886303078
+                            ],
+                            "controlled": null,
+                            "guess": true,
+                            "constraint": null
+                        }
+                    ],
+                    "unit": "kW"
+                },
+                "deltaP_inverted": {
+                    "data": [
+                        {
+                            "id": 55,
+                            "discrete_indexes": [],
+                            "value": [
+                                0.0
+                            ],
+                            "controlled": null,
+                            "guess": false,
+                            "constraint": null
+                        }
+                    ],
+                    "unit": "kPa"
+                }
+            },
+            "ports": {
+                "inlet": {
+                    "id": 3,
+                    "properties": {}
+                },
+                "outlet": {
+                    "id": 4,
+                    "properties": {
+                        "temperature": {
+                            "data": [
+                                {
+                                    "id": 69,
+                                    "discrete_indexes": [],
+                                    "value": [
+                                        80.00000000000085
+                                    ],
+                                    "controlled": 54,
+                                    "guess": false,
+                                    "constraint": null
+                                }
+                            ],
+                            "unit": "degC"
+                        }
+                    }
+                }
+            },
+            "initial_values": {
+                "Cooler1_5": {
+                    "data": {
+                        "None": {
+                            "__type__": "<class 'idaes.core.base.process_block._ScalarCustomCooler'>",
+                            "__pyomo_components__": {
+                                "deltaP": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 0.0,
+                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "heat_duty": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": -756.7316886303078,
+                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "control_volume": {
+                                    "data": {
+                                        "None": {
+                                            "__type__": "<class 'idaes.core.base.process_block._ScalarControlVolume0DBlock'>",
+                                            "__pyomo_components__": {
+                                                "heat": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "value": -756.7316886303078,
+                                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                                },
+                                                "deltaP": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "value": 0.0,
+                                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                                },
+                                                "properties_in": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "__type__": "<class 'ahuora_property_packages.helmholtz.helmholtz_extended.HelmholtzExtendedStateBlockData'>",
+                                                            "__pyomo_components__": {
+                                                                "enth_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 6792.366727830015,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "flow_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 1.000000001771757,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "pressure": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 100000.0,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'idaes.core.base.process_block._IndexedHelmholtzExtendedStateBlock'>"
+                                                },
+                                                "properties_out": {
+                                                    "data": {
+                                                        "0.0": {
+                                                            "__type__": "<class 'ahuora_property_packages.helmholtz.helmholtz_extended.HelmholtzExtendedStateBlockData'>",
+                                                            "__pyomo_components__": {
+                                                                "enth_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 6035.635040540353,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "flow_mol": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 1.000000001771757,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "pressure": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 100000.0,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                },
+                                                                "temperature_var": {
+                                                                    "data": {
+                                                                        "None": {
+                                                                            "value": 353.15,
+                                                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                        }
+                                                                    },
+                                                                    "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "__type__": "<class 'idaes.core.base.process_block._IndexedHelmholtzExtendedStateBlock'>"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "__type__": "<class 'idaes.core.base.process_block._ScalarControlVolume0DBlock'>"
+                                },
+                                "deltaP_inverted": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 0.0,
+                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "heat_duty_inverted": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 756.7316886303078,
+                                            "__type__": "<class 'pyomo.core.base.var.VarData'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_enth_mol_inlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 6792.366727830015,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_flow_mol_inlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 1.000000001771757,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_pressure_inlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 100000.0,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_enth_mol_outlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 6035.635040540353,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_flow_mol_outlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 1.000000001771757,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                },
+                                "_pressure_outlet_ref": {
+                                    "data": {
+                                        "0.0": {
+                                            "value": 100000.0,
+                                            "__type__": "<class 'pyomo.core.base.var.ScalarVar'>"
+                                        }
+                                    },
+                                    "__type__": "<class 'pyomo.core.base.var.IndexedVar'>"
+                                }
+                            }
+                        }
+                    },
+                    "__type__": "<class 'idaes.core.base.process_block._ScalarCustomCooler'>"
+                },
+                "__metadata__": {
+                    "date": "2026-05-22",
+                    "time": "06:28:47.615727",
+                    "other": {},
+                    "format_version": 4,
+                    "__performance__": {
+                        "n_components": 46,
+                        "etime_make_dict": 0.0004596710205078125,
+                        "etime_write_file": 2.384185791015625e-7
+                    }
+                }
+            }
+        }
+    ],
+    "arcs": [
+        {
+            "id": 4,
+            "source": 2,
+            "destination": 3,
+            "tear_guess": null
+        },
+        {
+            "id": 7,
+            "source": 4,
+            "destination": 1,
+            "tear_guess": {
+                "mole_frac_comp": true,
+                "flow_mol": true,
+                "temperature": false,
+                "pressure": true
+            }
+        }
+    ],
+    "machineLearningBlock": null,
+    "expressions": [],
+    "optimizations": [],
+    "disable_initialization": false,
+    "skip_initialization_for_units_with_initial_values": false,
+    "solver_option": "ipopt"
+}
