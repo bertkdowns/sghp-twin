@@ -1,9 +1,15 @@
 [project]
 name = "sghp-twin"
 version = "0.1.0"
-description = "Add your description here"
+description = "Digital twin of the Steam Generating Heat Pump"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 dependencies = [
     "paho-mqtt>=2.1.0",
+    "ahuora-builder",
+    "ahuora-builder-types",
 ]
+
+
+[tool.uv.sources]
+ahuora-builder = { path = "../Ahuora-Adaptive-Digital-Twin-Platform/backend/ahuora-builder", editable = true }
