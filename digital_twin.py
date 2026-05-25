@@ -145,6 +145,8 @@ def on_message(client, userdata, msg):
 # Set up a loop to solve the flowsheet and publish results every 10 seconds
 def solve_and_publish():
     while True:
+        for recycle in recycles:
+            recycle.recycle() # slowly recycle values to help convergence
         manager.solve()
         for tag in DIGITAL_TWIN_RESULT_TAGS:
             value = get_value_from_tag(tag)
