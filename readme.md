@@ -59,3 +59,18 @@ The only problem is that when this is reversed, the MQTT configuration to accept
 
 
 when importing tags, use copy and replace.
+
+
+# Digital Twin
+
+On the platform we can set tags for all the variables that are calculated from the platform. These can be sent to the PLC with the VIRTUAL
+prefix when we want to virtualise the process.
+
+The PLC can send back signals for the controlling actions it takes (new amount of heat duty, pump speed, mechanical work), from the PID control algorithms. These can then be used as inputs to the simulation (we can automatically detect which things are inputs to the simulation and have tags using the tag mappings).
+
+This actually works pretty well. One problem is when the system is in an unstable state, the platform tries to simulate to steady state. E.g if you have a recycle loop and your heater is on too high, in the real world it would gradually get hotter and hotter. Our platform is simulating a steady state model, and so in steady state temperature is infinite (it would just spiral higher and higher forever) and infeasible. 
+
+This could be remedied in a couple of ways:
+- Having some sort of buffer, e.g generic heat loss that pulls variables back down to some maximum
+- Specifying different properties (e.g if you specify temperatures and pressures you don't get this problem. However, then you can't use the platform as a "virtual plant emulator")
+- Doing one step of a dynamic simulation instead of a steady state simulation (then holdup can actually model it). This will involve adding some holdup/tanks between unit ops, or at least somewhere in the unstable recycles. It'll also take some work to make the platform robust enough to do this.

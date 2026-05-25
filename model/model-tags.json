@@ -1,0 +1,98 @@
+{
+    "CWTC22": {
+        "property": 617348,
+        "units": "degC"
+    },
+    "WWTT43": {
+        "property": 617359,
+        "units": "degC"
+    },
+    "HWVF51": {
+        "property": 617536,
+        "units": "kg/h"
+    },
+    "HPTT03": {
+        "property": 617549,
+        "units": "degC"
+    },
+    "HPPT03": {
+        "property": 617550,
+        "units": "kPa"
+    },
+    "HPMF01": {
+        "property": 617606,
+        "units": "kg/h"
+    },
+    "HPTT04": {
+        "property": 617608,
+        "units": "degC"
+    },
+    "HPTT07": {
+        "property": 617619,
+        "units": "degC"
+    },
+    "HPPT01": {
+        "property": 617620,
+        "units": "kPa"
+    },
+    "HPTT06": {
+        "property": 617653,
+        "units": "degC"
+    },
+    "HPPT04": {
+        "property": 617654,
+        "units": "kPa"
+    },
+    "STVF61": {
+        "property": 617880,
+        "units": "kg/h"
+    },
+    "STTT61": {
+        "property": 617882,
+        "units": "degC"
+    },
+    "STPT61": {
+        "property": 617883,
+        "units": "kPa"
+    },
+    "HWTT51": {
+        "property": 617967,
+        "units": "degC"
+    },
+    "HWPT51": {
+        "property": 617968,
+        "units": "kPa"
+    },
+    "WWVF41": {
+        "property": 622824,
+        "units": "kg/h"
+    },
+    "WWTT41": {
+        "property": 622826,
+        "units": "degC"
+    },
+    "WWPT41": {
+        "property": 622827,
+        "units": "bar"
+    },
+    "WWTC41": {
+        "property": 622854,
+        "units": "degC"
+    },
+    "SOTT33": {
+        "property": 622964,
+        "units": "degC"
+    },
+    "SOTT32": {
+        "property": 623112,
+        "units": "degC"
+    },
+    "SOEH31": {
+        "property": 630940,
+        "units": "W"
+    },
+    "SOTT31": {
+        "property": 630967,
+        "units": "degC"
+    }
+}

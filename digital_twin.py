@@ -7,8 +7,13 @@ from ahuora_builder_types.flowsheet_schema import FlowsheetSchema
 from ahuora_builder.flowsheet_manager import FlowsheetManager
 import threading
 import pyomo.environ as pyo
-from ahuora_builder.methods.units_handler import attach_unit
+from ahuora_builder.methods.units_handler import attach_unit, get_attached_unit, get_attached_unit_str
 from ahuora_builder.methods.property_map_manipulation import update_property
+from pyomo.environ import units as u
+from pint import UnitRegistry, Unit, Quantity
+pint_registry = UnitRegistry()
+from typing import cast
+
 
 # -------------------------
 # Configuration
@@ -17,17 +22,57 @@ MQTT_BROKER = "localhost"   # change if needed
 MQTT_PORT = 1883
 
 manager = FlowsheetManager(
-    FlowsheetSchema(
-        json.loads(
+    FlowsheetSchema.model_validate_json(
             Path("model/model.json").read_text()
-            )
         )
     )
 
 manager.load()
-manager.initialize()
+manager.initialise()
 
-tags = json.loads(Path("model/model_tags.json").read_text())
+tags = json.loads(Path("model/model-tags.json").read_text())
+
+
+# This code is stolen from idaes_factory. We need to move it to ahuora_builder and have it in a consistent place
+# might be good to define extra units in a shared location
+pint_registry.define("dollar = [currency]")
+pint_registry.define("megadollar = 1e6 * dollar")
+def get_unit(unit: str | None) -> Unit | None:
+    """
+    Get the pint unit object
+    @unit: str unit type
+    @return: unit object
+    """
+    if unit is None or unit == "":
+        return None
+    pint_unit = getattr(pint_registry, unit, None)
+    if pint_unit is None:
+        raise AttributeError(f'Unit `{unit}` not found.')
+    return cast(Unit, pint_unit)
+
+def convert_value(
+        value: float, 
+        from_unit: str | None = None, 
+        to_unit: str | None = None,
+    ) -> float:
+    """
+    convert value from one unit to another
+    @value: float value in original units
+    @from_unit: str unit
+    @to_unit: str unit
+    @return: float value converted to new unit
+    """
+    p_from_unit = get_unit(from_unit)
+    p_to_unit = get_unit(to_unit)
+    if p_from_unit is None or p_to_unit is None or p_from_unit == p_to_unit:
+        # no conversion needed
+        return value
+    try:
+        from_quantity = pint_registry.Quantity(value, p_from_unit)
+        to_quantity = from_quantity.to(p_to_unit)
+        return cast(float, to_quantity.magnitude)
+    except Exception as e:
+        raise ValueError(f"Could not perform unit conversion from {from_unit} to {to_unit}: {str(e)}")
 
 
 
@@ -38,11 +83,14 @@ def get_property_component_from_tag(tag: str):
 
 def get_var_from_tag(tag: str):
     property_component = get_property_component_from_tag(tag)
-    return next(iter(property_component.component))
+    return next(iter(property_component.component.values()))
 
 def get_value_from_tag(tag: str):
     var = get_var_from_tag(tag)
-    return pyo.value(var)
+    from_units = get_attached_unit_str(var)
+    to_units = tags[tag]["units"]
+    value = convert_value(pyo.value(var), from_unit=from_units, to_unit=to_units)
+    return value
 
 # We expect to get values for these tags from the PLC (e.g valve setpoints etc)
 # The plc will send them with the PLC/ prefix, e.g. PLC/HPEV01, etc.
@@ -77,11 +125,10 @@ def on_message(client, userdata, msg):
     topic = msg.topic
     
     value = int.from_bytes(msg.payload,byteorder='little')
-    print(f"{topic}={value}")
+    #print(f"{topic}={value}")
     # Get the tag by removing the "PLC/" prefix
     tag = topic.replace("PLC/", "")
     if tag in DIGITAL_TWIN_INPUT_TAGS:
-        print(f"Received {value} for {tag}")
         unit_string = tags[tag]["units"]
         value_with_units = attach_unit(value, unit_string)
         property_component = get_property_component_from_tag(tag)
@@ -93,18 +140,24 @@ def on_message(client, userdata, msg):
 # Set up a loop to solve the flowsheet and publish results every 10 seconds
 def solve_and_publish():
     while True:
-        time.sleep(10)
         manager.solve()
         for tag in DIGITAL_TWIN_RESULT_TAGS:
             value = get_value_from_tag(tag)
             topic = f"VIRTUAL/{tag}"
             publish_tag(client, topic, value)
-            print(f"Published {value} to {topic}")
+        time.sleep(10)
+
         
 
 
 def publish_tag(client, topic,value):
-    client.publish(topic, value.to_bytes(2, byteorder='little'))
+    value = int(value)
+    try:
+        data = value.to_bytes(2, byteorder='little')
+        client.publish(topic, data)
+        print(f"Published {value} to {topic}")
+    except OverflowError:
+        print(f"Cannot publish {topic}: {value} is too large to fit in 2 bytes")
 
 # -------------------------
 # MQTT Client
