@@ -1,2 +1,4 @@
 mosquitto/data/*
 mosquitto/log/*
+__pycache__/*
+.mypy_cache/*

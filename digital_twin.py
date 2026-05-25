@@ -13,7 +13,7 @@ from pyomo.environ import units as u
 from pint import UnitRegistry, Unit, Quantity
 pint_registry = UnitRegistry()
 from typing import cast
-
+from recycle import add_recycles
 
 # -------------------------
 # Configuration
@@ -29,6 +29,11 @@ manager = FlowsheetManager(
 
 manager.load()
 manager.initialise()
+
+recycles = add_recycles(manager)
+for recycle in recycles:
+    print(f"Recycle {recycle.from_var} to {recycle.to_var} with rate {recycle.recycle_rate}")
+manager.report_statistics()
 
 tags = json.loads(Path("model/model-tags.json").read_text())
 
