@@ -75,3 +75,20 @@ This could be remedied in a couple of ways:
 - Specifying different properties (e.g if you specify temperatures and pressures you don't get this problem. However, then you can't use the platform as a "virtual plant emulator")
 - Doing one step of a dynamic simulation instead of a steady state simulation (then holdup can actually model it). This will involve adding some holdup/tanks between unit ops, or at least somewhere in the unstable recycles. It'll also take some work to make the platform robust enough to do this.
 - Manually do dynamic simulation: Break the recycle loop at some point, and use the previous value (or a percentage of the previous values) output as the input for the next solve. Solve each at steady state.
+
+# The main problems we are getting right now:
+
+- Zero flow: This means that everything fails to solve, because if you try do do 1 kW of mechanical work on zero flow you get to infinite pressure. Could probably add a "zero flow" warning and some slack variables to properties that are affected by flow so that it stops caring about them when flow is zero.
+- Heat exchangers failing: In theory, U and A heat exchangers should always solve. However, it seems sometimes they fail and calculate that we don't have enough energy to reach an outlet temperature. This could be when we go through the vapor-liquid equilibrium breaking the delta_temperature LMTD or whatever calculation method?
+- Valves are often showing that there is a problem between inlet and outlet temperature. However, it is often very small differences between inlet and outlet temperature, so it usually seems to be a numerical precision area as enthalpy is the state var. We should ignore those very small deviations as it clutters up the logs.
+
+- Maybe? Ipopt is starting from start, setting warm_start = true might help once it's solved once (could be overshooting a bit.)
+
+The "recycle whatever you get" strategy doesn't work when you get an infeasible solve as then it recycles and fixes garbage variables. So you should only recycle when you get "optimal solution found".
+
+
+Next steps: Clean up logs to notify of zero flow, ignore valve issues. 
+
+I would like to look at the slack variable idea to make it more reliable. I would like to try the hierarchical modelling as an alternative fallback strategy if the main model doesn't solve, but that will be a lot of work. 
+
+I also need to set sensible defaults for the p&ID variables and the other outputs so that the model doesn't immediately fail when I turn on the PLC. (right now the pumps are off so the model immediately breaks.)

@@ -8,6 +8,7 @@ dependencies = [
     "paho-mqtt>=2.1.0",
     "ahuora-builder",
     "ahuora-builder-types",
+    "idaes-ui>=0.25.10",
 ]
 
 

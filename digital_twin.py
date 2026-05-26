@@ -51,6 +51,8 @@ print("=========================")
 print("=========================")
 print("=========================")
 
+# manager.model.fs.visualize("Heat Pump")
+
 tags = json.loads(Path("model/model-tags.json").read_text())
 
 
@@ -146,7 +148,7 @@ def on_message(client, userdata, msg):
     topic = msg.topic
     
     value = int.from_bytes(msg.payload,byteorder='little')
-    #print(f"{topic}={value}")
+    # print(f"{topic}={value}")
     # Get the tag by removing the "PLC/" prefix
     tag = topic.replace("PLC/", "")
     if tag in DIGITAL_TWIN_INPUT_TAGS:
