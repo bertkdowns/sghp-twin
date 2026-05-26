@@ -35,6 +35,22 @@ for recycle in recycles:
     print(f"Recycle {recycle.from_var} to {recycle.to_var} with rate {recycle.recycle_rate}")
 manager.report_statistics()
 
+try:
+    manager.solve()
+except Exception as e:
+    print(f"Error occurred while solving the flowsheet: {e}")
+manager.diagnose_problems()
+
+
+print("=========================")
+print("=========================")
+print("=========================")
+print("INITIALISATION COMPLETE")
+print("=========================")
+print("=========================")
+print("=========================")
+print("=========================")
+
 tags = json.loads(Path("model/model-tags.json").read_text())
 
 
@@ -145,9 +161,13 @@ def on_message(client, userdata, msg):
 # Set up a loop to solve the flowsheet and publish results every 10 seconds
 def solve_and_publish():
     while True:
-        for recycle in recycles:
-            recycle.recycle() # slowly recycle values to help convergence
-        manager.solve()
+        try:
+            manager.solve()
+
+            # for recycle in recycles:
+            #     recycle.recycle() # slowly recycle values to help convergence
+        except Exception as e:
+            print(f"Error occurred while solving the flowsheet: {e}")
         for tag in DIGITAL_TWIN_RESULT_TAGS:
             value = get_value_from_tag(tag)
             topic = f"VIRTUAL/{tag}"
@@ -162,7 +182,7 @@ def publish_tag(client, topic,value):
     try:
         data = value.to_bytes(2, byteorder='little')
         client.publish(topic, data)
-        print(f"Published {value} to {topic}")
+        #print(f"Published {value} to {topic}")
     except OverflowError:
         print(f"Cannot publish {topic}: {value} is too large to fit in 2 bytes")
 

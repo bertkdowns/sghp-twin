@@ -1,3 +1,4 @@
+import math
 import threading
 import pyomo.environ as pyo
 from ahuora_builder_types.flowsheet_schema import FlowsheetSchema
@@ -31,7 +32,10 @@ class Recycle:
         from_value = pyo.value(self.from_var)
         to_value = pyo.value(self.to_var)
         new_value = self.recycle_rate * from_value + (1 - self.recycle_rate) * to_value
-        self.to_var.fix(new_value)
+        self.to_var.set_value(new_value)
+
+        if math.fabs((from_value - to_value)/abs(from_value + to_value) * 2) > 0.01:  # Only log if values are more than 1% different
+            print(f"Recycling: {from_value} -> {new_value} @ {self.to_var.name} {self.recycle_rate} = {new_value}")
 
 def add_recycles(manager: FlowsheetManager):
     """
@@ -58,3 +62,5 @@ def add_recycles(manager: FlowsheetManager):
     
             
 
+# Note that for this to work you have to be careful where you put the recycles, and make sure there aren't any constraints around it
+# that cause an over or under constrained set.

@@ -7,9 +7,21 @@
         "property": 617359,
         "units": "degC"
     },
+    "WWTT42": {
+        "property": 617489,
+        "units": "degC"
+    },
+    "HPTT04": {
+        "property": 617500,
+        "units": "degC"
+    },
     "HWVF51": {
         "property": 617536,
         "units": "kg/h"
+    },
+    "HWTT52": {
+        "property": 617538,
+        "units": "degC"
     },
     "HPTT03": {
         "property": 617549,
@@ -23,7 +35,7 @@
         "property": 617606,
         "units": "kg/h"
     },
-    "HPTT04": {
+    "HPTT05": {
         "property": 617608,
         "units": "degC"
     },
@@ -39,8 +51,16 @@
         "property": 617653,
         "units": "degC"
     },
-    "HPPT04": {
+    "HPPT06": {
         "property": 617654,
+        "units": "kPa"
+    },
+    "SOVF31": {
+        "property": 617759,
+        "units": "kg/min"
+    },
+    "SOPT31": {
+        "property": 617762,
         "units": "kPa"
     },
     "STVF61": {
@@ -54,6 +74,10 @@
     "STPT61": {
         "property": 617883,
         "units": "kPa"
+    },
+    "HWTC51": {
+        "property": 617893,
+        "units": "degC"
     },
     "HWTT51": {
         "property": 617967,
@@ -94,5 +118,29 @@
     "SOTT31": {
         "property": 630967,
         "units": "degC"
+    },
+    "HPTT01": {
+        "property": 631904,
+        "units": "degC"
+    },
+    "HPTT02": {
+        "property": 631968,
+        "units": "degC"
+    },
+    "HPPT02": {
+        "property": 631969,
+        "units": "kPa"
+    },
+    "WWVS41": {
+        "property": 632078,
+        "units": "dimensionless"
+    },
+    "CWTC21": {
+        "property": 632106,
+        "units": "degC"
+    },
+    "HWVS51": {
+        "property": 632694,
+        "units": "dimensionless"
     }
 }
